@@ -1,4 +1,4 @@
-# lexdoc
+# hedo
 
 [![npm](https://img.shields.io/npm/v/hedo.svg?style=flat-square)](https://www.npmjs.com/package/hedo)
 [![license](https://img.shields.io/github/license/aetherised/hedo.svg?style=flat-square)][license]
