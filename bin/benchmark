@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+'use strict' /*eslint                                           no-console: 0 */
+
+const { Suite } = require('benchmark')
+
+const hedo = require('../index.js')
+const heredocument = require('heredocument')
+const theredoc = require('theredoc')
+const heredoc = require('heredoc')
+
+const suite = new Suite()
+
+const teststr = `
+    foo
+      bar
+      baz
+    bat
+  `
+
+suite
+  .add('#hedo', function() {
+    hedo(teststr)
+  })
+  .add('#heredocument', function() {
+    heredocument(teststr)
+  })
+  .add('#theredoc', function() {
+    theredoc`
+    foo
+      bar
+      baz
+    bat
+  `
+  })
+  .add('heredoc#strip', function() {
+    heredoc.strip(function() { /*
+    foo
+      bar
+      baz
+    bat
+  */ })
+  })
+  .on('start', function(event) {
+    console.log()
+  })
+  .on('cycle', function(event) {
+    console.log(String(event.target))
+  })
+  .on('complete', function() {
+    const fastest = this.filter('fastest').map('name')
+    const slowest = this.filter('slowest').map('name')
+    console.log(`\nFastest: ${fastest}\nSlowest: ${slowest}\n`)
+  })
+  .run({ async: true })
