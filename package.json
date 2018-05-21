@@ -23,6 +23,12 @@
     "email": "aetherised@gmail.com",
     "url": "https://github.com/aetherised"
   },
+  "repository": "github:aetherised/hedo",
+  "bugs": {
+    "url": "https://github.com/aetherised/hedo/issues",
+    "email": "aetherised@gmail.com"
+  },
+  "homepage": "https://github.com/aetherised/hedo",
   "license": "MIT",
   "engines": {
     "npm": ">=8.9.4"
