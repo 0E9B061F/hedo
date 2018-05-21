@@ -1,6 +1,6 @@
 {
   "name": "hedo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Yet another here doc implementation using template literals.",
   "main": "index.js",
   "files": [
