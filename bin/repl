@@ -2,10 +2,11 @@
 'use strict'
 
 const repl = require('repl')
+const hedo = require('../index.js')
 
 
 function initialize(ctx) {
-  ctx.hedo = require('../index.js')
+  ctx.hedo = hedo
 }
 
 const r = repl.start({ prompt: 'hedo> ' })
