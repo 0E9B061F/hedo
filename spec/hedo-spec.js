@@ -5,6 +5,8 @@ const { inspect } = require('util')
 const { hedo } = require('../lib/hedo.js')
 const hedoIndex = require('../index.js')
 
+const phlebas = require('../spec/data/phlebas.js')
+
 
 function test(doc) {
   if (!Array.isArray(doc.hedo)) doc.hedo = [doc.hedo]
@@ -102,6 +104,20 @@ foo
         bat
       `)],
       expect: '  foo\n    bar\n    baz\n  bat\n'
+    })
+  })
+
+  it('should work as expected with real text', function() {
+    test({
+      hedo: phlebas.input,
+      expect: phlebas.expected
+    })
+  })
+
+  it('should preserve as expected with real text', function() {
+    test({
+      hedo: [2, phlebas.input],
+      expect: phlebas.preserved
     })
   })
 })
