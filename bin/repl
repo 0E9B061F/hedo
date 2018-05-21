@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+'use strict'
+
+const repl = require('repl')
+
+
+function initialize(ctx) {
+  ctx.hedo = require('../index.js')
+}
+
+const r = repl.start({ prompt: 'hedo> ' })
+
+initialize(r.context)
+r.on('reset', initialize)
