@@ -2,122 +2,123 @@
 
 const { inspect } = require('util')
 
-const { hedo } = require('../lib/hedo.js')
-const hedoIndex = require('../index.js')
+const hedo = require('../index.js')
 
 const phlebas = require('../spec/data/phlebas.js')
 
 
-function test(doc) {
-  if (!Array.isArray(doc.hedo)) doc.hedo = [doc.hedo]
-  expect(hedo(...doc.hedo)).toEqual(doc.expect)
-  expect(hedoIndex(...doc.hedo)).toEqual(doc.expect)
-}
-
-
 describe('hedo', function() {
-  it('should strip leading newline, minimum indent and trailing whitespace', function() {
-    test({
-      hedo: (`
+  describe('normal interface', function () {
+    it('should strip leading newline, minimum indent and trailing whitespace', function() {
+      expect(hedo(`
         foo
           bar
           baz
         bat
-      `),
-      expect: 'foo\n  bar\n  baz\nbat\n'
+      `)).toEqual('foo\n  bar\n  baz\nbat\n')
     })
-  })
 
-  it('should handle text with no indentation', function() {
-    test({
-      hedo: (`
+    it('should handle text with no indentation', function() {
+      expect(hedo(`
 foo
 bar
 baz
 bat
-      `),
-      expect: 'foo\nbar\nbaz\nbat\n'
+      `)).toEqual('foo\nbar\nbaz\nbat\n')
     })
-  })
 
-  it('should handle text with some indentation', function() {
-    test({
-      hedo: (`
+    it('should handle text with some indentation', function() {
+      expect(hedo(`
 foo
   bar
     baz
       bat
-      `),
-      expect: 'foo\n  bar\n    baz\n      bat\n'
+      `)).toEqual('foo\n  bar\n    baz\n      bat\n')
     })
-  })
 
-  it('should preserve blank lines', function() {
-    test({
-      hedo: (`
+    it('should preserve blank lines', function() {
+      expect(hedo(`
         foo
 
           bar
           baz
 
         bat
-      `),
-      expect: 'foo\n\n  bar\n  baz\n\nbat\n'
+      `)).toEqual('foo\n\n  bar\n  baz\n\nbat\n')
     })
-  })
 
-  it('should handle strings with text on the first line gracefully', function() {
-    test({
-      hedo: (`foo
+    it('should handle strings with text on the first line gracefully', function() {
+      expect(hedo(`foo
           bar
           baz
         bat
-      `),
-      expect: 'foo\n  bar\n  baz\nbat\n'
+      `)).toEqual('foo\n  bar\n  baz\nbat\n')
     })
-  })
 
-  it('should handle single-line strings gracefully', function() {
-    test({ hedo: `foo`,         expect: 'foo' })
-    test({ hedo: `    foo`,     expect: '    foo' })
-    test({ hedo: `    foo    `, expect: '    foo    ' })
-  })
+    it('should handle single-line strings gracefully', function() {
+      expect(hedo(`foo`)).toEqual('foo')
+      expect(hedo(`    foo`)).toEqual('    foo')
+      expect(hedo(`    foo    `)).toEqual('    foo    ')
+    })
 
-  it('should preserve some indentation when told to', function() {
-    test({
-      hedo: [(`
+    it('should preserve some indentation when told to', function() {
+      expect(hedo(`
         foo
           bar
           baz
         bat
-      `), 2],
-      expect: '  foo\n    bar\n    baz\n  bat\n'
+      `, 2)).toEqual('  foo\n    bar\n    baz\n  bat\n')
     })
-  })
 
-  it('should accept the preserve argument first if preferred', function() {
-    test({
-      hedo: [2, (`
+    it('should accept the preserve argument first if preferred', function() {
+      expect(hedo(2, `
         foo
           bar
           baz
         bat
-      `)],
-      expect: '  foo\n    bar\n    baz\n  bat\n'
+      `)).toEqual('  foo\n    bar\n    baz\n  bat\n')
+    })
+
+    it('should work as expected with real text', function() {
+      expect(hedo(phlebas.input)).toEqual(phlebas.expected)
+    })
+    
+    it('should preserve as expected with real text', function() {
+      expect(hedo(2, phlebas.input)).toEqual(phlebas.preserved)
     })
   })
 
-  it('should work as expected with real text', function() {
-    test({
-      hedo: phlebas.input,
-      expect: phlebas.expected
+  describe('tagged templates', function () {
+    it('behave the same as the standard interface', function () {
+      expect(hedo`
+        foo
+          bar
+          baz
+        bat
+      `).toEqual('foo\n  bar\n  baz\nbat\n')
+      expect(hedo`foo
+          bar
+          baz
+        bat
+      `).toEqual('foo\n  bar\n  baz\nbat\n')
     })
-  })
-
-  it('should preserve as expected with real text', function() {
-    test({
-      hedo: [2, phlebas.input],
-      expect: phlebas.preserved
+    it('accepts a preserve argument and returns a new tag function', function () {
+      expect(hedo(2)`
+        foo
+          bar
+          baz
+        bat
+      `).toEqual('  foo\n    bar\n    baz\n  bat\n')
+    })
+    it('correctly handles newlines in interpolated variables', function () {
+      const part = `a\n  b\nc\n`
+      expect(hedo`
+        foo
+          bar
+          ${part}
+          baz
+        bat
+      `).toEqual('foo\n  bar\n  a\n    b\n  c\n  baz\nbat\n')
     })
   })
 })

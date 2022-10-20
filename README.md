@@ -1,12 +1,10 @@
 # hedo
 
 [![npm](https://img.shields.io/npm/v/hedo.svg?style=flat-square)](https://www.npmjs.com/package/hedo)
-[![license](https://img.shields.io/github/license/aetherised/hedo.svg?style=flat-square)][license]
-[![maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=flat-square)](https://github.com/aetherised/hedo/commits/master)
+[![license](https://img.shields.io/github/license/0E9B061F/hedo.svg?style=flat-square)][license]
+[![maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=flat-square)](https://github.com/0E9B061F/hedo/commits/master)
 
-**Yet another here doc implementation using template literals.** *Slightly* faster
-than similar tools that were tested. Con: currently assumes all indentation will
-be spaces; doesn't understand tabs.
+Yet another here doc implementation using template literals.
 
 ## Example
 
@@ -38,7 +36,7 @@ console.log(phlebas)
 Running this script will give the following result:
 
 ```console
-aetherised@Oberon:~$ node phlebas.js
+nn@Arkady:~$ node phlebas.js
         IV. Death by Water
 
 Phlebas the Phoenician, a fortnight dead,
@@ -52,7 +50,7 @@ Entering the whirlpool.
 O you who turn the wheel and look to windward,
 Consider Phlebas, who was once handsome and tall as you.
 
-aetherised@Oberon:~$ ▮
+nn@Arkady:~$ ▮
 ```
 
 ### Preserving Some Indentation
@@ -80,14 +78,101 @@ console.log(metasyntatic)
 Four spaces of indentation will be preserved:
 
 ```console
-aetherised@Oberon:~$ node preserve.js
+nn@Arkady:~$ node preserve.js
     foo
       bar
         baz
       bat
     quz
 
-aetherised@Oberon:~$ ▮
+nn@Arkady:~$ ▮
+```
+
+## Tagged Templates
+
+`hedo` is also usable as a template tag:
+
+```js
+hedo`
+  foo
+    bar
+    baz
+`
+```
+
+In this form, space can be preserved like this:
+
+```js
+hedo(2)`
+  foo
+    bar
+    baz
+`
+```
+
+### Newlines in Interpolated Variables
+
+Most importantly, the tagged form of `hedo` handles newlines in interpolated
+variables gracefully. For example:
+
+```js
+// inter-a.js
+
+const hedo = require('hedo')
+
+const example = "a\n  b\nc\n"
+const inter = hedo`
+  foo
+    bar
+    ${example}
+  baz
+`
+console.log(inter)
+```
+
+Will produce:
+
+```console
+nn@Arkady:~$ node inter-a.js
+foo
+  bar
+  a
+    b
+  c
+bat
+
+nn@Arkady:~$ ▮
+```
+
+Conversely, with the standard form of `hedo`:
+
+```js
+// inter-b.js
+
+const hedo = require('hedo')
+
+const example = "a\n  b\nc\n"
+const inter = hedo(`
+  foo
+    bar
+    ${example}
+  baz
+`)
+console.log(inter)
+```
+
+Will produce mangled output:
+
+```console
+nn@Arkady:~$ node inter-b.js
+foo
+  bar
+  a
+  b
+c
+bat
+
+nn@Arkady:~$ ▮
 ```
 
 ## Installation
@@ -100,8 +185,8 @@ npm install hedo
 
 Available under the terms of the [MIT license.][license]
 
-Copyright 2018 [Abacus Lever / @aetherised][alever]
+Copyright 2022 [nn / @0E9B061F][nn]
 
 
-[alever]:https://github.com/aetherised
-[license]:https://github.com/aetherised/hedo/blob/master/LICENSE
+[nn]:https://github.com/0E9B061F
+[license]:https://github.com/0E9B061F/hedo/blob/master/LICENSE

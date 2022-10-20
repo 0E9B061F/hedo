@@ -1,7 +1,7 @@
 {
   "name": "hedo",
-  "version": "1.0.3",
-  "description": "Yet another here doc implementation using template literals.",
+  "version": "1.1.0",
+  "description": "Yet another here doc implementation using template literals",
   "main": "index.js",
   "files": [
     "index.js",
@@ -19,16 +19,16 @@
     "here document"
   ],
   "author": {
-    "name": "Abacus Lever",
-    "email": "aetherised@gmail.com",
-    "url": "https://github.com/aetherised"
+    "name": "nn",
+    "email": "0E9B061F@protonmail.com",
+    "url": "https://github.com/0E9B061F"
   },
-  "repository": "github:aetherised/hedo",
+  "repository": "github:0E9B061F/hedo",
   "bugs": {
-    "url": "https://github.com/aetherised/hedo/issues",
-    "email": "aetherised@gmail.com"
+    "url": "https://github.com/0E9B061F/hedo/issues",
+    "email": "0E9B061F@protonmail.com"
   },
-  "homepage": "https://github.com/aetherised/hedo",
+  "homepage": "https://github.com/0E9B061F/hedo",
   "license": "MIT",
   "engines": {
     "npm": ">=8.9.4"
