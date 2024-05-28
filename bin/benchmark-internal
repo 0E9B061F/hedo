@@ -2,7 +2,7 @@
 'use strict' /*eslint                                           no-console: 0 */
 
 const { Suite } = require('benchmark')
-const hedo = require('../lib/hedo.js')
+const here = require('../lib/heretag.js')
 
 const suite = new Suite()
 
@@ -12,21 +12,21 @@ const teststr = `
       baz
     bat
   `
-const deInStr = hedo.deIndent(teststr)
-const trimStStr = hedo.trimStart(deInStr)
+const deInStr = here.deIndent(teststr)
+const trimStStr = here.trimStart(deInStr)
 
 suite
-  .add('hedo#trimStart', function() {
-    hedo.trimStart(deInStr)
+  .add('here#trimStart', function() {
+    here.trimStart(deInStr)
   })
-  .add('hedo#trimEnd', function() {
-    hedo.trimEnd(trimStStr)
+  .add('here#trimEnd', function() {
+    here.trimEnd(trimStStr)
   })
-  .add('hedo#minIndent', function() {
-    hedo.minIndent(teststr)
+  .add('here#minIndent', function() {
+    here.minIndent(teststr)
   })
-  .add('hedo#stripIndent', function() {
-    hedo.stripIndent(teststr, 4)
+  .add('here#stripIndent', function() {
+    here.stripIndent(teststr, 4)
   })
   .on('start', function(event) {
     console.log()

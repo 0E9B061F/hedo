@@ -2,18 +2,18 @@
 'use strict'
 
 const repl = require('repl')
-const hedo = require('../index.js')
-const lib = require('../lib/hedo.js')
+const here = require('../index.js')
+const lib = require('../lib/heretag.js')
 const phlebas = require('../spec/data/phlebas.js')
 
 
 function initialize(ctx) {
-  ctx.hedo = hedo
+  ctx.here = here
   ctx.lib = lib
   ctx.phlebas = phlebas
 }
 
-const r = repl.start({ prompt: 'hedo> ' })
+const r = repl.start({ prompt: 'heretag> ' })
 
 initialize(r.context)
 r.on('reset', initialize)

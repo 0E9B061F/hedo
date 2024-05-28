@@ -1,4 +1,4 @@
-# **hedo** v1.1.4
+# **heretag** v1.1.5
 [![Version][icon-ver]][repo]
 [![License][icon-lic]][license]
 [![Maintenance][icon-mnt]][commits]<br/>
@@ -13,9 +13,9 @@ Consider `phlebas.js`:
 ```js
 // phlebas.js
 
-const hedo = require('hedo')
+const here = require('heretag')
 
-const phlebas = hedo(`
+const phlebas = here(`
             IV. Death by Water
 
     Phlebas the Phoenician, a fortnight dead,
@@ -56,15 +56,15 @@ nn@Arkady:~$ ▮
 ### Preserving Some Indentation
 
 Suppose you want to preserve some level of indentation. To do so, specify a
-number as either the first or second argument to `hedo`. The given number of
+number as either the first or second argument to `here`. The given number of
 spaces will be preserved:
 
 ```js
 // preserve.js
 
-const hedo = require('hedo')
+const here = require('heretag')
 
-const metasyntatic = hedo(4, `
+const metasyntatic = here(4, `
             foo
               bar
                 baz
@@ -90,10 +90,10 @@ nn@Arkady:~$ ▮
 
 ## Tagged Templates
 
-`hedo` is also usable as a template tag:
+`here` is also usable as a template tag:
 
 ```js
-hedo`
+here`
   foo
     bar
     baz
@@ -103,7 +103,7 @@ hedo`
 In this form, space can be preserved like this:
 
 ```js
-hedo(2)`
+here(2)`
   foo
     bar
     baz
@@ -112,16 +112,16 @@ hedo(2)`
 
 ### Newlines in Interpolated Variables
 
-Most importantly, the tagged form of `hedo` handles newlines in interpolated
+Most importantly, the tagged form of `here` handles newlines in interpolated
 variables gracefully. For example:
 
 ```js
 // inter-a.js
 
-const hedo = require('hedo')
+const here = require('heretag')
 
 const example = "a\n  b\nc\n"
-const inter = hedo`
+const inter = here`
   foo
     bar
     ${example}
@@ -144,15 +144,15 @@ bat
 nn@Arkady:~$ ▮
 ```
 
-Conversely, with the standard form of `hedo`:
+Conversely, with the standard form of `here`:
 
 ```js
 // inter-b.js
 
-const hedo = require('hedo')
+const here = require('heretag')
 
 const example = "a\n  b\nc\n"
-const inter = hedo(`
+const inter = here(`
   foo
     bar
     ${example}
@@ -178,7 +178,7 @@ nn@Arkady:~$ ▮
 ## Installation
 
 ```shell
-npm install hedo
+npm install heretag
 ```
 
 # License
@@ -188,13 +188,13 @@ Available under the terms of the [Mozilla Public License Version 2.0][license].
 
 
 [gh]:https://github.com/0E9B061F
-[repo]:https://github.com/0E9B061F/hedo
-[npm]:https://www.npmjs.com/package/hedo
-[commits]:https://github.com/0E9B061F/hedo/commits/master
-[license]:https://github.com/0E9B061F/hedo/blob/master/LICENSE
+[repo]:https://github.com/0E9B061F/heretag
+[npm]:https://www.npmjs.com/package/heretag
+[commits]:https://github.com/0E9B061F/heretag/commits/master
+[license]:https://github.com/0E9B061F/heretag/blob/master/LICENSE
 
-[icon-ver]:https://img.shields.io/github/package-json/v/0E9B061F/hedo.svg?style=flat-square&logo=github&color=%236e7fd2
-[icon-npm]:https://img.shields.io/npm/v/hedo.svg?style=flat-square&color=%23de2657
-[icon-lic]:https://img.shields.io/github/license/0E9B061F/hedo.svg?style=flat-square&color=%236e7fd2
+[icon-ver]:https://img.shields.io/github/package-json/v/0E9B061F/heretag.svg?style=flat-square&logo=github&color=%236e7fd2
+[icon-npm]:https://img.shields.io/npm/v/heretag.svg?style=flat-square&color=%23de2657
+[icon-lic]:https://img.shields.io/github/license/0E9B061F/heretag.svg?style=flat-square&color=%236e7fd2
 [icon-mnt]:https://img.shields.io/maintenance/yes/2024.svg?style=flat-square
 

@@ -3,7 +3,7 @@
 
 const { Suite } = require('benchmark')
 
-const hedo = require('../index.js')
+const here = require('../index.js')
 const heredocument = require('heredocument')
 const theredoc = require('theredoc')
 const heredoc = require('heredoc')
@@ -18,8 +18,8 @@ const teststr = `
   `
 
 suite
-  .add('#hedo', function() {
-    hedo(teststr)
+  .add('#heretag', function() {
+    here(teststr)
   })
   .add('#heredocument', function() {
     heredocument(teststr)

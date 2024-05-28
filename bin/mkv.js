@@ -21,7 +21,7 @@ let vers = [...vinfo.split("\n").filter(v=> !!v), ver]
 vers = [...new Set(vers.map(v=> v.split('.').slice(0,-1).join('.')))]
 
 const code = `${ver}`
-const line = `# **hedo** ${code}`
+const line = `# **heretag** ${code}`
 
 let readme = readFileSync(`${__dirname}/../README.md`, {encoding: 'UTF-8'})
 readme = readme.split('\n').slice(1)
