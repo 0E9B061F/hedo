@@ -1,4 +1,4 @@
-# **heretag** v1.1.5
+# **heretag** v1.1.6
 [![Version][icon-ver]][repo]
 [![License][icon-lic]][license]
 [![Maintenance][icon-mnt]][commits]<br/>
@@ -184,7 +184,7 @@ npm install heretag
 # License
 
 Copyright 2020-2024 **[0E9B061F][gh]**<br/>
-Available under the terms of the [Mozilla Public License Version 2.0][license].
+Available under the terms of the [MIT License][license].
 
 
 [gh]:https://github.com/0E9B061F

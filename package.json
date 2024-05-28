@@ -1,6 +1,6 @@
 {
   "name": "heretag",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Heredoc implementation using template literals",
   "license": "MIT",
   "homepage": "https://github.com/0E9B061F/heretag",
