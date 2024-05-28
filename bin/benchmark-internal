@@ -28,6 +28,9 @@ suite
   .add('here#stripIndent', function() {
     here.stripIndent(teststr, 4)
   })
+  .add('here#si2', function() {
+    here.si2(teststr, 4)
+  })
   .on('start', function(event) {
     console.log()
   })
