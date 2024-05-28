@@ -1,10 +1,10 @@
-# hedo
+# **hedo** v1.1.3
+[![Version][icon-ver]][repo]
+[![License][icon-lic]][license]
+[![Maintenance][icon-mnt]][commits]<br/>
+[![npm][icon-npm]][npm]
 
-[![npm](https://img.shields.io/npm/v/hedo.svg?style=flat-square)](https://www.npmjs.com/package/hedo)
-[![license](https://img.shields.io/github/license/0E9B061F/hedo.svg?style=flat-square)][license]
-[![maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=flat-square)](https://github.com/0E9B061F/hedo/commits/master)
-
-Yet another here doc implementation using template literals.
+A heredoc implementation using template literals.
 
 ## Example
 
@@ -181,12 +181,20 @@ nn@Arkady:~$ ▮
 npm install hedo
 ```
 
-## License
+# License
 
-Available under the terms of the [MIT license.][license]
+Copyright 2020-2024 **[0E9B061F][gh]**<br/>
+Available under the terms of the [Mozilla Public License Version 2.0][license].
 
-Copyright 2022 [nn / @0E9B061F][nn]
 
-
-[nn]:https://github.com/0E9B061F
+[gh]:https://github.com/0E9B061F
+[repo]:https://github.com/0E9B061F/hedo
+[npm]:https://www.npmjs.com/package/hedo
+[commits]:https://github.com/0E9B061F/hedo/commits/master
 [license]:https://github.com/0E9B061F/hedo/blob/master/LICENSE
+
+[icon-ver]:https://img.shields.io/github/package-json/v/0E9B061F/hedo.svg?style=flat-square&logo=github&color=%236e7fd2
+[icon-npm]:https://img.shields.io/npm/v/hedo.svg?style=flat-square&color=%23de2657
+[icon-lic]:https://img.shields.io/github/license/0E9B061F/hedo.svg?style=flat-square&color=%236e7fd2
+[icon-mnt]:https://img.shields.io/maintenance/yes/2024.svg?style=flat-square
+
