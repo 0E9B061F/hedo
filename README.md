@@ -1,4 +1,4 @@
-# **hedo** v1.1.3
+# **hedo** v1.1.4
 [![Version][icon-ver]][repo]
 [![License][icon-lic]][license]
 [![Maintenance][icon-mnt]][commits]<br/>

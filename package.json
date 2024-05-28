@@ -1,6 +1,6 @@
 {
-  "name": "hdoc",
-  "version": "1.1.3",
+  "name": "heretag",
+  "version": "1.1.4",
   "description": "Heredoc implementation using template literals",
   "license": "MIT",
   "homepage": "https://github.com/0E9B061F/hedo",
@@ -31,7 +31,8 @@
   },
   "keywords": [
     "heredoc",
-    "here document"
+    "here doc",
+    "here string"
   ],
   "devDependencies": {
     "benchmark": "^2.1.4",
