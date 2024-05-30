@@ -1,4 +1,4 @@
-# **heretag** v1.1.7
+# **heretag** v1.1.8
 [![Version][icon-ver]][repo]
 [![License][icon-lic]][license]
 [![Maintenance][icon-mnt]][commits]<br/>

@@ -1,6 +1,6 @@
 {
   "name": "heretag",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Heredoc implementation using template literals",
   "license": "MIT",
   "homepage": "https://github.com/0E9B061F/heretag",
@@ -33,7 +33,8 @@
     "test": "bin/jasmine",
     "bench": "bin/benchmark",
     "bench:internal": "bin/benchmark-internal",
-    "repl": "bin/repl"
+    "repl": "bin/repl",
+    "mkv": "mkv"
   },
   "keywords": [
     "heredoc",
@@ -41,12 +42,13 @@
     "here string"
   ],
   "devDependencies": {
-    "jasmine": "^5.1.0",
-    "jasmine-console-reporter": "^3.1.0",
+    "@0e9b061f/mkv": "^0.1.0",
     "benchmark": "^2.1.4",
-    "microtime": "^3.1.1",
     "heredoc": "^1.3.1",
     "heredocument": "^2.0.2",
+    "jasmine": "^5.1.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "microtime": "^3.1.1",
     "theredoc": "^1.0.0"
   }
 }
