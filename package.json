@@ -8,7 +8,10 @@
     "url": "https://github.com/0E9B061F/heretag/issues",
     "email": "0E9B061F@protonmail.com"
   },
-  "repository": "github:0E9B061F/heretag",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0E9B061F/heretag.git"
+  },
   "author": {
     "name": "0E9B061F",
     "email": "0E9B061F@protonmail.com",
